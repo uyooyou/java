@@ -1,0 +1,4 @@
+StudentAdmin1 - student_info.txt
+홍길동:66
+박찬호:55
+장원영:100

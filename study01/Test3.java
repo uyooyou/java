@@ -58,12 +58,12 @@ public class Test3 {
 		
 		String lotte_tower_height = "555m";  // o
 		int namsan = 470;  // o
-		int namsan#height = 480;   //x 특수문자
-		int namsan = 480;   //x 변수명 중복
+		//int namsan#height = 480;   //x 특수문자
+		//int namsan = 480;   //x 변수명 중복
 		namsan = 480;   //o
 		String _name = "감자탕";   //x 첫글자는 무조건 영어
 		String name_ = "감자탕";   //o
-		String 44size = "희망사항";  //x
+		//String 44size = "희망사항";  //x
 		String lucky7 = "행운";   //o
 		String 하이미디어 = "학원";   //o 가능하지만 실무에서는 한글 사용 안함
 		System.out.println(하이미디어);

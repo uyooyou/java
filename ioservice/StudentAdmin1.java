@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class StudentAdmin1 {
 	
-	public static String filePath = "C:/mytemp/student";
+	public static String filePath = "C:/mytemp/student.txt";
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -52,6 +52,22 @@ public class StudentAdmin1 {
 	}
 	
 	public static void studentList2() {
+		try {
+			FileReader file = new FileReader(filePath);
+			BufferedReader buffer = new BufferedReader(file);
+			int rowNumber = 0;
+			while(true) {
+				String str = buffer.readLine();
+				if(str == null) {
+					break;
+				}
+				rowNumber ++;
+				String[] array = str.split(":");
+				System.out.println(rowNumber + ". " + array[0] + ", 점수 : " + array[1]);
+			}
+		}catch(Exception e) {
+			System.out.println("경로확인");
+		}
 		
 	}
 
