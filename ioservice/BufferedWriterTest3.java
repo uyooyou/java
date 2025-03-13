@@ -1,8 +1,8 @@
 package ioservice;
-import java.io.BufferedReader;
 /*
  * 추가사항작성  __  쌤거 보고 다시 써봐 == 
  */
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
@@ -69,7 +69,6 @@ public class BufferedWriterTest3 {
 		buffer.write(data);
 		buffer.close();
 		System.out.println("\n-저장완료-");
-		fw.close();
 	}
 	
 	//2
@@ -83,8 +82,6 @@ public class BufferedWriterTest3 {
 			if(str == null) break;
 			System.out.println(str);
 		}
-		file.close();
-		buffer.close();
 	}
 	
 	//5
@@ -101,7 +98,6 @@ public class BufferedWriterTest3 {
 
 		FileReader file = new FileReader(path);
 		BufferedReader buffer = new BufferedReader(file);
-		
 		String datas = "";
 		while(true) {
 			String str = buffer.readLine();
@@ -113,13 +109,15 @@ public class BufferedWriterTest3 {
 			System.out.println("입력할 데이터 없음");
 			return;
 		}
+		buffer.close();
+		file.close();
+		
 		FileWriter fw = new FileWriter(filePath,true);
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write(datas);
 		bw.close();
 		fw.close();
-		file.close();
-		buffer.close();
+		System.out.println("일괄처리완료");
 	}
 	
 	//3
@@ -143,15 +141,12 @@ public class BufferedWriterTest3 {
 		if(cnt == 0) {
 			System.out.println(searchWord + "(은)는 없는정보입니다.");
 		}
-		file.close();
-		buffer.close();
-		
 	}
 	
 	//4
 	public static void delMemberInfo() throws Exception {
 		Scanner scan = new Scanner(System.in);
-		System.out.print("학생명 검색 : ");
+		System.out.print("삭제 학생명 : ");
 		String searchWord = scan.next();
 		
 		FileReader file = new FileReader(filePath);
@@ -173,15 +168,12 @@ public class BufferedWriterTest3 {
 			System.out.println(searchWord + "(은)는 없는정보입니다.");
 		}else {
 			FileWriter fw = new FileWriter(filePath,false);
-			BufferedWriter bufferW = new BufferedWriter(fw);
-			bufferW.write(datas);
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(datas);
+			bw.close();
 			fw.close();
-			bufferW.close();
 			System.out.println(searchWord + "의 정보가 삭제되었습니다.");
 		}
-		file.close();
-		buffer.close();
-		
 	}
 
 	
